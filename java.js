@@ -36,7 +36,7 @@ let page_list = document.getElementById("listepage");
 let btn_add = document.getElementById("add");
 let btn_clear_list = document.getElementById("clear");
 let btn_page_list_contact = document.getElementById("listcontact");
-let contenu_afficher = document.querySelector(".card");
+let contenu_afficher = document.querySelector(".resultat");
 
 let contacts = loaddata("info") ? loaddata("info") : [];
 
@@ -65,6 +65,22 @@ function loaddata(dataname) {
 function savedata(dataname, data) {
   const jsondata = JSON.stringify(data);
   localStorage.setItem(dataname, jsondata);
+}
+
+function createDeleteButton(id) {
+  const button = document.createElement("button");
+  button.innerHTML = "delete";
+  button.className = "delButton";
+  button.id = id;
+  return button;
+}
+
+function creteedit(id) {
+  const button = document.createElement("button");
+  button.innerHTML = "edit";
+  button.className = "edButton";
+  button.id = id;
+  return button;
 }
 
 btn_add.addEventListener("click", function () {
@@ -169,7 +185,11 @@ function consulte(contact) {
   tr_number.appendChild(contenu_number);
   table.appendChild(tr_number);
 
+  article.appendChild(createDeleteButton(contact.id));
+  article.appendChild(creteedit(contact.id));
+
   contenu_afficher.appendChild(ul);
   contenu_afficher.appendChild(table);
+  contenu_afficher.appendChild(article);
 }
 afficher();
