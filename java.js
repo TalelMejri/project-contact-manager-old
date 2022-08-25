@@ -1,9 +1,9 @@
 /*** load  */
-/*let ch = "talel";
+let ch = "bahra";
 var ch1;
 do {
   ch1 = prompt("Donner Votre Mot de Passe ");
-} while (ch1 != ch);*/
+} while (ch1 != ch);
 
 function loader() {
   document.querySelector(".load").classList.add("fade-out");
