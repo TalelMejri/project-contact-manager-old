@@ -1,0 +1,58 @@
+ 
+ nav ul {
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:1fr;
+    grid-row-gap:15px;
+    align-items:center;
+    justify-items: center;
+    padding: 10px 25px;
+    animation: opacity-change 1s linear forwards;
+    position: absolute;
+  }
+  
+  @keyframes opacity-change
+  {
+    0%{
+      opacity: 0;
+      transform: rotatex(100deg);
+      filter: blur(4px);
+    }
+    100%{
+      opacity: 1;
+      transform: rotatex(0deg);
+      filter: blur(0);
+    }
+  }
+
+ nav{
+    display:none;
+  }
+
+ .menu{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      cursor:pointer;
+  }
+
+  #menu{
+    float: right;
+  }
+
+.welcome{
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  }
+
+  .welcome img{
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+
+
+
+  

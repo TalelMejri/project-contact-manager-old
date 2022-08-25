@@ -1,0 +1,22 @@
+@media screen and (min-width:750px){
+    
+    nav{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    nav 
+    ul{
+        display: flex;
+        text-align: center;
+    }
+    li{
+        margin: 0 20px;
+        text-align: center;
+    }
+          .welcome img {
+              width: 400px !important;
+              height: 400px !important;
+          }
+
+}

@@ -1,0 +1,51 @@
+*{
+  font-family: 'Times New Roman', Times, serif;
+  box-sizing: border-box;
+}
+
+/***  load ***/
+
+.load{
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 10000;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100%;
+    width:100%;
+  }
+
+  .load.fade-out{
+    top:-120%;
+  }
+  
+/***** nav ****/
+
+.menu{
+  background-color: whitesmoke;
+  padding:10px 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+nav a{
+  text-decoration: none;
+  font-size: 18px;
+  color: red;
+}
+#add_contact{
+  display: none;
+}
+
+#listepage{
+  display: none;
+}
+
+
+
+
+  
+
+  
