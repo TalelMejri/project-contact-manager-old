@@ -72,14 +72,36 @@
                      <label class="form-label">Number</label>
                      <input required type="number" class="form-control" id="number" >
                    </div>
-                  <button id="add" type="Add" class="btn btn-primary">Add</button>
+                  <button id="add" type="submit" class="btn btn-primary">Add</button>
                </form>
             </article>
-
+              
             <article id="listepage" class="welcome">
+              <div style="margin-top: -50px;" class="position-absolute ">
+                     <input class="form-control" type="text" id="search" placeholder="search">
+             </div>
                   <div class="resultat">
-
+                       <span style="margin-top:30%;margin-left:40%" id="oups"> Oups!!! No Contact Here . </span>
                   </div>
+            <div id="edit_contact" class="edit py-5 mt-5">
+              <form classs="shadow p-5 mt-5 text-center">
+                 <h4 class="text-center">Update Contact</h4>
+                   <div class="mb-3">
+                     <label class="form-label">Name</label>
+                     <input  type="text" class="form-control" id="name_edit">
+                  </div>
+                  <div class="mb-3">
+                     <label class="form-label">Job</label>
+                     <input  type="text" class="form-control" id="job_edit">
+                  </div>
+                   <div class="mb-3">
+                     <label class="form-label">Number</label>
+                     <input  type="number" class="form-control" id="number_edit" >
+                   </div>
+                  <button id="edit" type="submit" class="btn btn-warning">Update</button>
+                   <button onclick="delete_afficher();" type="submit" class="btn btn-secondary">Close</button>
+               </form>
+              </div>
             </article>
       </section>
       <footer>
@@ -98,9 +120,9 @@
                     <div class="image">
                       <img src="./images/talel.jpg" class="mb-2 rounded-circle img-thumbnail shadow-sm" width="20%" alt="">
                     </div>
-                    <div class=" social-media">
-                        <ul class="text-center d-flex mx-4 px-5">
-                          <li><a class="btn btn-outline-secondary rounded-pill text-dark mx-1 text-decoration-none" href="#"><i class="fa-brands fa-github"></i></a></li>
+                    <div class=" social-media text-center">
+                        <ul class="text-center d-flex mx-4 px-5 ">
+                          <li><a class="btn btn-outline-secondary rounded-pill text-dark mx-1 text-center text-decoration-none" href="#"><i class="fa-brands fa-github"></i></a></li>
                           <li><a class="btn btn-outline-primary rounded-pill text-dark mx-1 text-decoration-none" href="#"><i class="fa-brands fa-facebook"></i></a></li>
                           <li><a class="btn btn-outline-danger rounded-pill text-dark mx-1 text-decoration-none" href="#"><i class="fa-brands fa-youtube"></i></a></li>
                         </ul>

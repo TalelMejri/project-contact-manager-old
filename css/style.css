@@ -35,6 +35,7 @@ nav a{
   font-size: 18px;
   color: red;
 }
+
 #add_contact{
   display: none;
 }
@@ -44,6 +45,72 @@ nav a{
 }
 
 
+.resultat li {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.resultat {
+  display: grid;
+  margin-top: 150px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+
+}
+.resultat ul{
+  display: grid;
+  grid-template-columns: 1fr;
+  border-bottom: 1px solid #fff;
+  border-width: 70%;
+}
+.resultat div{
+    display: grid;
+    grid-row-gap: 15px;
+    grid-template-columns: 1fr;
+}
+
+article button {
+  width: 30%;
+  height: 60%;
+  padding-top: -10px;
+  cursor: pointer;
+  box-shadow: 0 5px #999;
+  transition-duration: 0.1s;
+}
+
+.resultat div button:first-child:active {
+  background-color: red;
+  box-shadow: 0 0px #666;
+  transform: translateY(4px);
+  font-weight: 600;
+}
+
+.resultat div button:last-child:active {
+  background-color: green;
+  box-shadow: 0 0px #666;
+  transform: translateY(4px);
+  font-weight: 600;
+}
+
+
+#edit_contact{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  width: 300px;
+  height: 450px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1), 0 0 0 1000px rgba(255, 255, 255, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+#edit_contact {
+  display: none;
+}
 
 
   

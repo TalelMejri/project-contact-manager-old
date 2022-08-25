@@ -37,7 +37,10 @@ let btn_add = document.getElementById("add");
 let btn_clear_list = document.getElementById("clear");
 let btn_page_list_contact = document.getElementById("listcontact");
 let contenu_afficher = document.querySelector(".resultat");
-
+let page_edit = document.getElementById("edit_contact");
+let btn_update = document.getElementById("edit");
+let content = document.getElementById("oups");
+let champ_search = document.getElementById("search");
 let contacts = loaddata("info") ? loaddata("info") : [];
 
 btn_new_contact.addEventListener("click", function () {
@@ -106,6 +109,9 @@ function afficher() {
   }
 }
 
+if (localStorage.getItem("info") != null) {
+  content.style.display = "none";
+}
 /** methode 1 :pour afficher (hkimi)  */
 
 /*function consulte(contact) {
@@ -143,7 +149,7 @@ function afficher() {
 function consulte(contact) {
   let ul = document.createElement("ul");
   let table = document.createElement("table");
-  let article = document.createElement("article");
+  let div = document.createElement("div");
 
   let li_define_id = document.createElement("li");
   let text_li_define_id = document.createTextNode("Id :");
@@ -157,12 +163,12 @@ function consulte(contact) {
 
   let li_define_job = document.createElement("li");
   let text_li_define_job = document.createTextNode("Job :");
-  li_define_id.appendChild(text_li_define_job);
+  li_define_job.appendChild(text_li_define_job);
   ul.appendChild(li_define_job);
 
   let li_define_number = document.createElement("li");
   let text_li_define_number = document.createTextNode("Number :");
-  li_define_id.appendChild(text_li_define_number);
+  li_define_number.appendChild(text_li_define_number);
   ul.appendChild(li_define_number);
 
   let td_id = document.createElement("td");
@@ -185,11 +191,64 @@ function consulte(contact) {
   tr_number.appendChild(contenu_number);
   table.appendChild(tr_number);
 
-  article.appendChild(createDeleteButton(contact.id));
-  article.appendChild(creteedit(contact.id));
+  div.appendChild(createDeleteButton(contact.id));
+  div.appendChild(creteedit(contact.id));
 
   contenu_afficher.appendChild(ul);
   contenu_afficher.appendChild(table);
-  contenu_afficher.appendChild(article);
+  contenu_afficher.appendChild(div);
+
+  div.firstElementChild.addEventListener("click", function supprimer(event) {
+    let x = confirm("do you want delete !!");
+    if (x == true) {
+      const id = event.currentTarget.id;
+      for (let i = 0; i < contacts.length; i++) {
+        if (contacts[i].id == id) {
+          contacts.splice(i, 1);
+        }
+      }
+      savedata("info", contacts);
+      contenu_afficher.innerHTML = "";
+      afficher();
+    }
+  });
+
+  div.lastElementChild.addEventListener("click", function edit(event) {
+    const id = event.currentTarget.id;
+    page_edit.style.display = "block";
+    for (let i = 0; i < contacts.length; i++) {
+      if (contacts[i].id == id) {
+        let nom = document.querySelector("#name_edit");
+        let job = document.getElementById("job_edit");
+        let number = document.getElementById("number_edit");
+        nom.value = contacts[i].nom;
+        job.value = contacts[i].job;
+        number.value = contacts[i].number;
+        btn_update.addEventListener("click", function () {
+          contacts[i].nom = document.querySelector("#name_edit").value;
+          contacts[i].job = document.getElementById("job_edit").value;
+          contacts[i].number = document.getElementById("number_edit").value;
+          savedata("info", contacts);
+          alert("update succefuly");
+          page_edit.style.display = "none";
+        });
+      }
+    }
+  });
 }
 afficher();
+function delete_afficher() {
+  page_edit.style.display = "none";
+}
+
+/** search */
+
+champ_search.addEventListener("input", function () {
+  for (i = 0; i < contacts.length; i++) {
+    //if (contacts[i].nom.indexOf(champ_search.value)) {
+    if (contacts[i].nom == champ_search.value) {
+      contenu_afficher.innerHTML = "";
+      consulte(contacts[i]);
+    }
+  }
+});
